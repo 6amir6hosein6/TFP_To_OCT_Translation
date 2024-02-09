@@ -84,7 +84,6 @@ class SingleDataset(BaseDataset):
     def __getitem__(self, index):
 
         img_path = self.imgs_path_list[index]
-        print(img_path)
         img_filename = os.path.split(img_path)[-1]
         img = None
         try:
