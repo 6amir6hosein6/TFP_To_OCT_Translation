@@ -4,7 +4,7 @@ import cv2 as cv
 import numpy as np
 from . import augmentation
 from torch.utils.data import Dataset
-
+import time
 
 class BaseDataset(Dataset):
     def __init__(self, aug_params=None, transform=None, if_test=False, cls_num=4):
@@ -84,10 +84,13 @@ class SingleDataset(BaseDataset):
     def __getitem__(self, index):
 
         img_path = self.imgs_path_list[index]
+        print(img_path)
         img_filename = os.path.split(img_path)[-1]
         img = None
         try:
-            img = (cv.imread(img_path) / 255.).astype(np.float32)
+            img = (cv.imread(img_path, 1) / 255.).astype(np.float32)
+            print(img.shape)
+            time.sleep(5)
         except:
             pass
 
@@ -98,7 +101,6 @@ class SingleDataset(BaseDataset):
             label_onehot[label] = 1.0
         else:
             label_onehot = -1
-
         if self.aug_params is not None:
             myAug = augmentation.OurAug(self.aug_params)
             img = myAug.process(img)
