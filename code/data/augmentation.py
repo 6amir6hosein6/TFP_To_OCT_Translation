@@ -7,6 +7,7 @@ class Augmentation(object):
             im = im.astype(np.float32)
         im_min, im_max = np.min(im),np.max(im)
         im_std = (im - im_min) / (im_max - im_min)
+        im_std = np.array(im_std)
         resized_std = cv2.resize(im_std, size)
         resized_im = resized_std * (im_max - im_min) + im_min
         return resized_im

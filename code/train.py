@@ -88,8 +88,8 @@ def main(opts):
 
     # load model
     splitprint()
-    # checkpoint = configs.checkpoint if len(configs.checkpoint) else None
-    checkpoint = opts.checkpoint
+    checkpoint = configs.checkpoint if len(configs.checkpoint) else None
+    # checkpoint = opts.checkpoint
     model = model_structure(configs.net_name)(configs, device, checkpoint)
 
     criterion = torch.nn.CrossEntropyLoss()

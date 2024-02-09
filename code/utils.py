@@ -62,6 +62,7 @@ def predict_dataloader(model, loader, device, net_name="mm-model", if_test=False
     scores = []
     expects = []
     imagename_list = []
+
     for i, (inputs, labels_onehot, imagenames) in enumerate(loader):
         if if_test:
             label = None
@@ -77,8 +78,10 @@ def predict_dataloader(model, loader, device, net_name="mm-model", if_test=False
         scores.append(np.max(output))
         expects.append(label.numpy())
         imagename_list.append(np.squeeze(imagenames))
+
     if if_test:
         return predicts, scores, imagename_list
+
     return predicts, scores, expects
 
 
