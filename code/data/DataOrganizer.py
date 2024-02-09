@@ -19,7 +19,6 @@ class DataOrganizer:
 
     @staticmethod
     def get_oct_data(collection, aug_params=None, transform=None, if_test=False, cls_num=4, if_eval=False):
-        print("salam salam : ", collection)
         path_file = join_path(collection, "ImageSets", "oct.txt")
         imgs_path_list = load_pathfile("VisualSearch/mmc-amd/", "oct-median3x3-448x448", path_file)
         if not if_test or if_eval:

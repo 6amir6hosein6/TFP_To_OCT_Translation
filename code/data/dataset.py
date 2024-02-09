@@ -89,8 +89,6 @@ class SingleDataset(BaseDataset):
         img = None
         try:
             img = (cv.imread(img_path, 1) / 255.).astype(np.float32)
-            print(img.shape)
-            time.sleep(5)
         except:
             pass
 
