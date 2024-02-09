@@ -10,7 +10,7 @@ run_id=1
 train_collection="VisualSearch/mmc-amd-splitA-train"
 val_collection="VisualSearch/mmc-amd-splitA-val"
 configs_name="config-"$modality".py"
-num_workers=4
+num_workers=2
 
 python train.py --train_collection $train_collection \
                 --val_collection $val_collection \
