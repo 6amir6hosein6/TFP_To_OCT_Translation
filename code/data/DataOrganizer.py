@@ -7,7 +7,7 @@ class DataOrganizer:
     def get_fundus_data(collection, aug_params=None, transform=None, if_test=False, cls_num=4, if_eval=False):
         print("collection : ",collection)
         path_file = join_path(collection, "ImageSets", "cfp.txt")
-        imgs_path_list = load_pathfile(collection, "cfp-clahe-448x448", path_file)
+        imgs_path_list = load_pathfile("VisualSearch/mmc-amd/", "cfp-clahe-448x448", path_file)
         if (not if_test) or if_eval:
             label_file = join_path(collection, "annotations", "cfp.txt")
             labels_list = load_labelfile(label_file)

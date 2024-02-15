@@ -82,6 +82,9 @@ def main(opts):
     device = torch.device("cuda: {}".format(opts.device)
                           if (torch.cuda.is_available() and opts.device != "cpu") else "cpu")
 
+    # for colab
+    #device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
+    
     # get trainset and valset dataloaders for training
     data_initializer = select_dataloader(configs.modality)(opts, configs)
     train_loader, val_loader = data_initializer.get_training_dataloader()
