@@ -6,7 +6,7 @@ modality=$1
 
 cd code/
 device=2
-checkpoint="/data4/wws/mmc-amd-main/code/weights/oct-median3x3-3.pth"
+checkpoint="/code/weights/"$modality".pth"
 collection="VisualSearch/mmc-amd-splitA-train"
 configs_name="config-"$modality".py"
 num_workers=4
