@@ -22,7 +22,7 @@ def load_single_stream_model(configs, device, checkpoint=None):
             model = model.to(device)
             model.load_state_dict(torch.load(checkpoint, map_location="cuda:{}".format(device.index)))
         else:
-            model.load_state_dict(torch.load(checkpoint, map_location={"cpu"}))
+            model.load_state_dict(torch.load(checkpoint, map_location=torch.device('cpu')))
     else:
         model = init_resnet18(pretrained=True, heatmap=configs.heatmap)  
         if use_gpu:
