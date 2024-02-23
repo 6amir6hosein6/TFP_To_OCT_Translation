@@ -9,7 +9,7 @@ data_root="datasets/"$modality"/"
 cams_dir=$data_root"train_A/"
 dst_dir=$data_root"test_A/"
 split_name="splitA"
-gpu_ids="2"
+gpu_ids="0"
 
 python manipulate.py --cams_dir  $cams_dir \
                      --dst_dir  $dst_dir \
