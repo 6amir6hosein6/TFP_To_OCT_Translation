@@ -11,6 +11,13 @@ dst_dir=$data_root"test_A/"
 split_name="splitA"
 gpu_ids="0"
 
+rm -rf ./code/camconditioned_pix2pixHD/datasets/cfp
+mkdir ./code/camconditioned_pix2pixHD/datasets/cfp
+mkdir ./code/camconditioned_pix2pixHD/datasets/cfp/train_A
+mkdir ./code/camconditioned_pix2pixHD/datasets/cfp/train_B
+cp -r ./code/weights/cfp-CAM.pth ./code/camconditioned_pix2pixHD/datasets/cfp/train_A
+cp -r ./code/VisualSearch/mmc-amd/ImageData/cfp-clahe-448x448 ./code/camconditioned_pix2pixHD/datasets/cfp/train_B
+
 python manipulate.py --cams_dir  $cams_dir \
                      --dst_dir  $dst_dir \
                      --modality $modality
